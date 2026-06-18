@@ -6,6 +6,7 @@ export function Header() {
   return(
     <>
       <div>Logo</div>
+      <img src="/images/movie-app-logo.png" alt="" />
       
       <SearchBar />
 
