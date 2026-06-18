@@ -4,12 +4,8 @@ import { MovieGrid } from "../components/MovieGrid";
 
 export function HomePage() {
   return (
-    <div>
+    <div className="homepage-container">
       <Header />
-
-      <MovieGrid />
-
-      <Footer />
     </div>
   )
 }

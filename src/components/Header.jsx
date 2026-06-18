@@ -1,20 +1,32 @@
 import { NavLink } from "react-router";
 import { GenreFilter } from "./GenreFilter";
 import { SearchBar } from "./SearchBar";
+import "./Header.css";
 
 export function Header() {
-  return(
-    <>
-      <div>Logo</div>
-      <img src="/images/movie-app-logo.png" alt="" />
-      
-      <SearchBar />
+  return (
+    <div className="header-container">
+      <div className="logo-container">
+        <img
+          className="logo"
+          src="/images/movie-app-logo.png"
+          alt="Logo of the Movie App"
+        />
+        <img
+          className="logo-name"
+          src="/images/logoName.png"
+          alt="Logo name of the Movie App"
+        />
+      </div>
 
-      <GenreFilter />
-      
-      <NavLink to="/mylist">
-        <span>My List</span>
-      </NavLink>
-    </>
-  )
+      <div className="search-container">
+        <SearchBar />
+      </div>
+
+      <div className="navigation-container">
+        <GenreFilter />
+        <NavLink className="my-list-container">My list</NavLink>
+      </div>
+    </div>
+  );
 }
