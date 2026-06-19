@@ -1,22 +1,51 @@
 .header-container{
   width: 100%;
-  height: 15vh;
-  background-color: #F9FAFB;
+  height: 10vh;
+  background-color: var(--secondary-gray);
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .logo {
-  height: 120px;
+  height: 50px;
   width: 100%;
+  padding-right: 0.5rem;
 }
 
 .logo-name {
-  height: 120px;
+  height: 25px;
   width: 100%;
+}
+
+.navigation-container {
+  display: flex;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+.my-list-container {
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  border: solid 2px var(--primary-slate-black);
+  background-color: var(--primary-slate-black);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-normal);
+  color: var(--secondary-gray);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.my-list-container:hover {
+  background-color: var(--neutral-gray);
+  color: var(--secondary-gray-black);
+  border: solid 2px var(--primary-slate-black);
+  box-shadow: -1px 3px 5px 1px var(--primary-slate-black);
 }
