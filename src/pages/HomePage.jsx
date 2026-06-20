@@ -13,6 +13,8 @@ export function HomePage() {
 
         <MovieGrid />
       </div>
+
+      <Footer />
     </div>
   )
 }

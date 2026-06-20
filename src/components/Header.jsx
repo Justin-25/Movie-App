@@ -6,7 +6,7 @@ import "./Header.css";
 export function Header() {
   return (
     <div className="header-container">
-      <div className="logo-container">
+      <NavLink to="/" className="logo-container">
         <img
           className="logo"
           src="/images/movie-app-logo.png"
@@ -17,7 +17,7 @@ export function Header() {
           src="/images/logoName.png"
           alt="Logo name of the Movie App"
         />
-      </div>
+      </NavLink>
 
       <div className="search-container">
         <SearchBar />
@@ -25,7 +25,12 @@ export function Header() {
 
       <div className="navigation-container">
         <GenreFilter />
-        <NavLink className="my-list-container">My list</NavLink>
+        <NavLink
+          to="/mylist" 
+          className="my-list-container"
+        >
+          My list
+        </NavLink>
       </div>
     </div>
   );

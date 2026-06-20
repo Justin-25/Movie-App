@@ -4,10 +4,13 @@ import { MovieGrid } from "../components/MovieGrid";
 export function MyList() {
   return (
     <div>
-      <div>MyList</div>
       <Header />
 
-      <MovieGrid />
+      <div className="movie-grid-container">
+        <span className="heading-movie">My list</span>
+
+        <MovieGrid />
+      </div>
     </div>
   );
 }
