@@ -1,4 +1,3 @@
-![Logo](./public/images/logo-white.png)
 ![Logo Name](./public/images/logo-name-white.png)
 
 # Movie-App

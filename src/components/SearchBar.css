@@ -14,7 +14,8 @@
   border-bottom-left-radius: 15px;
   width: 20rem;
   font-weight: var(--font-medium);
-  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
 }
 
 .search-button {

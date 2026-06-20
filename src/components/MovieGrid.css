@@ -85,7 +85,8 @@
   padding: 1rem;
   text-align: start;
   color: var(--secondary-gray-black);
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
+  font-family: var(--font-body);
   font-weight: var(--font-medium);
   letter-spacing: var(--tracking-tigh);
 }
