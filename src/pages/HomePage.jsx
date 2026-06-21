@@ -1,11 +1,10 @@
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { MovieGrid } from "../components/MovieGrid";
+import { movies } from "../data/movies";
 import './HomePage.css'
 
 export function HomePage() {
-
-  // axios the movies on api backend
 
   return (
     <div className="homepage-container">
@@ -15,7 +14,7 @@ export function HomePage() {
       <div className="movie-grid-container">
         <span  className="heading-movie">Movies</span>
 
-        <MovieGrid />
+        <MovieGrid movies={movies} />
       </div>
 
       <Footer />

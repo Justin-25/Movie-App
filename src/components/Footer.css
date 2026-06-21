@@ -73,7 +73,6 @@
 
 .channel-link ul li {
   padding-top: 0.5rem;
-  cursor: pointer;
 }
 
 .channel-nav-link {
@@ -85,6 +84,7 @@
   letter-spacing: var(--tracking-tight);
   line-height: var(--text-sm--line-height);
   position: relative;
+  cursor: pointer;
 }
 
 .channel-nav-link::after {

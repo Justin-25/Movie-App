@@ -89,4 +89,7 @@
   font-family: var(--font-body);
   font-weight: var(--font-medium);
   letter-spacing: var(--tracking-tigh);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
