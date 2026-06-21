@@ -1,10 +1,10 @@
-import { MovieCard } from "../components/MovieCard";
+import { Header } from "../components/Header";
 
 export function MovieDetails() {
   return (
-    <div>
-      <div>MovieDetails</div>
-      <MovieCard />
-    </div>
+    <>
+      <Header />
+      <span>MovieDetails</span>
+    </>
   );
 }
