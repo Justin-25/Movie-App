@@ -1,3 +1,7 @@
+.movie-card-link {
+  text-decoration: none;
+}
+
 .movie-card {
   max-width: 200px;
   border-radius: 10px;
