@@ -1,10 +1,24 @@
-import { Heart, MoveLeft, Plus } from "lucide-react";
+import { Heart, MoveLeft, Plus, Star } from "lucide-react";
 import "./MovieDetails.css";
-import { NavLink } from "react-router";
+import { NavLink, useParams } from "react-router-dom";
 
 // To do: Render the data
 
-export function MovieDetails() {
+export function MovieDetails({
+  movies
+}) {
+  const {movieId} = useParams();
+
+  const movieDetails = movies.find((movie) => {
+    return (
+      movie.id === movieId
+    )
+  })
+
+  if (!movieDetails) {
+    return null
+  }
+
   return (
     <div className="container">
       <NavLink
@@ -16,29 +30,20 @@ export function MovieDetails() {
       <div className="movie-details-container">
         <div className="movie-details">
           <div className="details-image-container">
-            <img src="/images/movies/goat.webp" alt="" />
+            <img src={movieDetails.poster} />
           </div>
           <div className="details">
-            <div className="details-title">Goat</div>
+            <div className="details-title">{movieDetails.title}</div>
             <div className="details-genre">
-              Genre: Animation, Comdey, Family
+              Genre: {movieDetails.genres.join(', ')}
             </div>
-            <div className="details-rating">⭐ 4.5</div>
+            <div className="details-rating"><Star size={20} className="rating-stars" /> {movieDetails.rating.score} Votes: {movieDetails.rating.votes} </div>
             <div className="button-container">
-              <div className="like-button"><Heart className="heart"/> Like</div>
+              <div className="like-button"><Heart className="heart"/>Like</div>
               <div className="add-to-mylist-button"><Plus /> Add</div>
             </div>
             <div className="description">
-              In a world ruled by ferocious athleticism, one unlikely contender
-              dares to dream beyond the bleating of the herd. Meet a diminutive
-              goat, burdened by ambition yet blessed with a hidden talent, who
-              unexpectedly gains entry into the elite echelons of roarball. This
-              high-octane, co-ed spectacle demands unwavering commitment and
-              bone-jarring collisions, a domain typically reserved for nature's
-              apex predators. Can this underdog defy the odds and prove that
-              heart triumphs over sheer size in the ultimate test of speed and
-              strength? The journey to glory will test his limits, forging his
-              spirit in the crucible of competitive roarball.
+              {movieDetails.description}
             </div>
           </div>
         </div>

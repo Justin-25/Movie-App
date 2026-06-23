@@ -1,10 +1,11 @@
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { MovieGrid } from "../components/MovieGrid";
-import { movies } from "../data/movies";
 import './HomePage.css'
 
-export function HomePage() {
+export function HomePage({
+  movies
+}) {
 
   return (
     <div className="homepage-container">

@@ -99,7 +99,7 @@ export const movies = [
     },
     genres: [
       "action",
-      "horor",
+      "horror",
       "war"
     ]
   },
@@ -251,7 +251,7 @@ export const movies = [
     },
     genres: [
       "action",
-      "horor",
+      "horror",
       "war"
     ]
   },
