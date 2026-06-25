@@ -4,7 +4,9 @@ import { MovieGrid } from "../components/MovieGrid";
 import './HomePage.css'
 
 export function HomePage({
-  movies
+  movies,
+  myList,
+  toggleMovie
 }) {
 
   return (
@@ -15,7 +17,7 @@ export function HomePage({
       <div className="movie-grid-container">
         <span  className="heading-movie">Movies</span>
 
-        <MovieGrid movies={movies} />
+        <MovieGrid movies={movies} myList={myList} toggleMovie={toggleMovie} />
       </div>
 
       <Footer />

@@ -1,31 +1,46 @@
-import { Heart, MoveLeft, Plus, Star } from "lucide-react";
+import { Check, Heart, MoveLeft, Plus, Star } from "lucide-react";
 import "./MovieDetails.css";
 import { NavLink, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 // To do: Render the data
 
-export function MovieDetails({
-  movies
-}) {
-  const {movieId} = useParams();
+export function MovieDetails({ movies, myList, toggleMovie }) {
+  const { movieId } = useParams();
+  const [likeMovies, setLikeMovies] = useState(false);
+
+  // ToDo: Save to localStorage
 
   const movieDetails = movies.find((movie) => {
-    return (
-      movie.id === movieId
-    )
-  })
+    return movie.id === movieId;
+  });
 
   if (!movieDetails) {
-    return null
+    return null;
+  }
+
+  const isSaved = myList.some(
+    (savedMovie) => savedMovie.id === movieDetails.id,
+  );
+
+  const handleClick = () => {
+    toggleMovie(movieDetails);
+  };
+
+  function toggleLikeMovie() {
+    if (likeMovies === false) {
+      setLikeMovies(true);
+    } else {
+      setLikeMovies(false);
+    }
   }
 
   return (
     <div className="container">
-      <NavLink
-        className="back-container"
-        to="/"
-      >
-        <span><MoveLeft size={40}/></span>
+      <NavLink className="back-container" to="/">
+        <span>
+          <MoveLeft size={40} />
+        </span>
       </NavLink>
       <div className="movie-details-container">
         <div className="movie-details">
@@ -35,16 +50,39 @@ export function MovieDetails({
           <div className="details">
             <div className="details-title">{movieDetails.title}</div>
             <div className="details-genre">
-              Genre: {movieDetails.genres.join(', ')}
+              Genre: {movieDetails.genres.join(", ")}
             </div>
-            <div className="details-rating"><Star size={20} className="rating-stars" /> {movieDetails.rating.score} Votes: {movieDetails.rating.votes} </div>
+            <div className="details-rating">
+              <Star size={20} className="rating-stars" />{" "}
+              {movieDetails.rating.score} Votes:{" "}
+              {movieDetails.rating.votes}{" "}
+            </div>
             <div className="button-container">
-              <div className="like-button"><Heart className="heart"/>Like</div>
-              <div className="add-to-mylist-button"><Plus /> Add</div>
+              {likeMovies ? (
+                <button className="liked-button" onClick={toggleLikeMovie}>
+                  <Heart className="hearted" />
+                  Liked
+                </button>
+              ) : (
+                <button className="like-button" onClick={toggleLikeMovie}>
+                  <Heart className="heart" />
+                  Like
+                </button>
+              )}
+              {isSaved ? (
+                <button
+                  className="remove-to-mylist-button"
+                  onClick={handleClick}
+                >
+                  <Check />
+                </button>
+              ) : (
+                <button className="add-to-mylist-button" onClick={handleClick}>
+                  <Plus /> Add
+                </button>
+              )}
             </div>
-            <div className="description">
-              {movieDetails.description}
-            </div>
+            <div className="description">{movieDetails.description}</div>
           </div>
         </div>
       </div>

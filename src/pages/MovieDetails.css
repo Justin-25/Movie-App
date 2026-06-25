@@ -95,8 +95,27 @@
   cursor: pointer;
 }
 
+.liked-button {
+  height: 40px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-gray);
+  border: solid 2px var(--primary-slate-black);
+  color: var(--primary-slate-black);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .heart {
   margin-right: 0.5rem;
+}
+
+.hearted {
+  fill: var(--primary-slate-black);
 }
 
 .add-to-mylist-button {
@@ -107,6 +126,21 @@
   align-items: center;
   border: solid 2px var(--primary-slate-black);
   color: var(--primary-slate-black);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.remove-to-mylist-button {
+  height: 40px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px var(--primary-slate-black);
+  background-color: var(--primary-slate-black);
+  color: var(--secondary-gray);
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
   border-radius: 5px;

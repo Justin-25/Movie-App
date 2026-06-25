@@ -63,9 +63,26 @@
   width: 1.8rem;
   height: 2rem;
   border-radius: 5px;
+  border: none;
   cursor: pointer;
   background-color: rgba(249, 250, 251, 0.459);
   color: var(--secondary-gray-black);
+}
+
+.remove-to-my-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 1.8rem;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--secondary-gray-black);
+  color: var(--secondary-gray);
 }
 
 .movie-title {
