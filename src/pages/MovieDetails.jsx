@@ -1,15 +1,9 @@
 import { Check, Heart, MoveLeft, Plus, Star } from "lucide-react";
 import "./MovieDetails.css";
 import { NavLink, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 
-// To do: Render the data
-
-export function MovieDetails({ movies, myList, toggleMovie }) {
+export function MovieDetails({ movies, myList, toggleMovie, likedMovies, toggleLikedMovie }) {
   const { movieId } = useParams();
-  const [likeMovies, setLikeMovies] = useState(false);
-
-  // ToDo: Save to localStorage
 
   const movieDetails = movies.find((movie) => {
     return movie.id === movieId;
@@ -23,16 +17,16 @@ export function MovieDetails({ movies, myList, toggleMovie }) {
     (savedMovie) => savedMovie.id === movieDetails.id,
   );
 
+  const isLiked = likedMovies.some(
+    (likedMovie) => likedMovie.id === movieDetails.id
+  )
+
   const handleClick = () => {
     toggleMovie(movieDetails);
   };
 
-  function toggleLikeMovie() {
-    if (likeMovies === false) {
-      setLikeMovies(true);
-    } else {
-      setLikeMovies(false);
-    }
+  const handleLikedMovie = () => {
+    toggleLikedMovie(movieDetails)
   }
 
   return (
@@ -58,13 +52,13 @@ export function MovieDetails({ movies, myList, toggleMovie }) {
               {movieDetails.rating.votes}{" "}
             </div>
             <div className="button-container">
-              {likeMovies ? (
-                <button className="liked-button" onClick={toggleLikeMovie}>
+              {isLiked ? (
+                <button className="liked-button" onClick={handleLikedMovie}>
                   <Heart className="hearted" />
                   Liked
                 </button>
               ) : (
-                <button className="like-button" onClick={toggleLikeMovie}>
+                <button className="like-button" onClick={handleLikedMovie}>
                   <Heart className="heart" />
                   Like
                 </button>

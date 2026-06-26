@@ -10,6 +10,7 @@ function App() {
   const [myList, setMyList] = useState(
     JSON.parse(localStorage.getItem("mylist")) || [],
   );
+  const [likedMovies, setLikedMovies] = useState(JSON.parse(localStorage.getItem("likedMovies")) || [])
 
   function toggleMovie(movie) {
     setMyList((prevM) =>
@@ -19,16 +20,25 @@ function App() {
     );
   }
 
+  function toggleLikedMovie(movie) {
+    setLikedMovies((prev) =>
+      prev.some((item) => item.id === movie.id)
+      ? prev.filter((item) => item.id !== movie.id)
+      : [...prev, movie]
+    )
+  }
+
   useEffect(() => {
     localStorage.setItem("mylist", JSON.stringify(myList));
-  }, [myList]);
+    localStorage.setItem("mylist", JSON.stringify(likedMovies));
+  }, [myList, likedMovies]);
 
   return (
     <Routes>
       <Route path="/" element={<HomePage myList={myList} movies={movies} toggleMovie={toggleMovie} />} />
       <Route
         path="/movie/:movieId"
-        element={<MovieDetails myList={myList} movies={movies} toggleMovie={toggleMovie} />}
+        element={<MovieDetails myList={myList} movies={movies} likedMovies={likedMovies} toggleMovie={toggleMovie} toggleLikedMovie={toggleLikedMovie} />}
       />
       <Route path="/mylist" element={<MyList movies={movies} myList={myList} toggleMovie={toggleMovie} />} />
     </Routes>
