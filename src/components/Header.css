@@ -43,6 +43,12 @@
   cursor: pointer;
 }
 
+.my-list-container.active {
+  background-color: var(--secondary-gray);
+  text-decoration: underline;
+  color: var(--primary-slate-black);
+}
+
 .my-list-container:hover {
   background-color: var(--neutral-gray);
   color: var(--secondary-gray-black);

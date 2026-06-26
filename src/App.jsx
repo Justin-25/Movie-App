@@ -7,9 +7,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [myList, setMyList] = useState(
-    JSON.parse(localStorage.getItem("mylist")) || [],
-  );
+  const [myList, setMyList] = useState(JSON.parse(localStorage.getItem("mylist")) || []);
   const [likedMovies, setLikedMovies] = useState(JSON.parse(localStorage.getItem("likedMovies")) || [])
 
   function toggleMovie(movie) {
@@ -30,8 +28,11 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("mylist", JSON.stringify(myList));
-    localStorage.setItem("mylist", JSON.stringify(likedMovies));
-  }, [myList, likedMovies]);
+  }, [myList]);
+
+  useEffect(() => {
+    localStorage.setItem("likedMovies", JSON.stringify(likedMovies));
+  }, [likedMovies])
 
   return (
     <Routes>
